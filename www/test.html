@@ -1,0 +1,45 @@
+<html>
+
+	<head>
+		<title>JQuery AJAX调用各种WEB SERVICE</title>
+		<meta charset="UTF-8">
+		<script src="js/jquery-3.0.0.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				//不带参数调用
+				$('#callWithNoParameter').click(function(event) {
+					alert("000");
+					$.ajax({
+						type: 'post',
+						contentType: 'application/json',
+						url: 'http://192.168.0.47:81/WebService1.asmx/HelloWorld',
+						data: '{}',
+						dataType: 'json',
+						cache: false,
+						timeout: "30000",
+						success: function(result) {
+							alert(result.d);
+						},
+						error: function(XMLHttpRequest, textStatus, errorThrown) {
+							alert(errorThrown);
+							alert(XMLHttpRequest.readyState);
+							alert(textStatus);
+						}
+					});
+					event.preventDefault();
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<p>
+		</p>
+		<form id="form1">
+			<div>
+				<button id="callWithNoParameter">不带参数调用</button>
+			</div>
+		</form>
+	</body>
+
+</html>

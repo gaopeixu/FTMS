@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title>登录</title>
+		<style type="text/css">
+		#userloging
+		{
+			margin:0 auto;
+			margin-top:5rem;
+			font-size: 14px;
+			font-family: "微软雅黑";
+			font-style: normal;
+		}
+		#userloging tr td{
+			height: 3rem;
+			width: 5rem;
+			text-align: center;
+		}
+		.btn{
+			width: 5rem;
+			background-color:lightgoldenrodyellow ;
+		}
+		</style>
+	</head>
+	<body>
+		<form runat="server" id="main">
+			<table id="userloging">
+				<tr>
+					<td>用户名：</td>
+					<td><input type="text" id="txtUserName"></td>
+				</tr>
+				<tr>
+					<td>密&nbsp;&nbsp;&nbsp;&nbsp;码：</td>
+					<td><input type="text" id="txtPwd"></td>
+				</tr>
+				<tr >
+					<td colspan="2">
+				    <input type="button" value="登录" id="btnLogin" class="btn">
+					<input type="button" value="取消" id="btnLogout" class="btn">
+					</td>
+				</tr>
+			</table>
+		</form>
+		<script src="js/jquery-3.0.0.js"></script>
+		<script type="text/javascript">
+			$(function() {
+	            $("#btnLogin").click(function() {
+	                var username = $("#txtUserName").val();
+	                var userpwd = $("#txtPwd").val();
+	                if (username != "" && userpwd != "") {
+	                    $.ajax({
+	                        type: 'post', //访问WebService使用Post方式请求
+	                        contentType: 'application/json;charset=utf-8', //WebService 会返回Json类型
+	                        url: 'http://192.168.0.47:81/WebService1.asmx/UserLogin', //调用WebService
+	                        data: "{'username':'" + username + "','userpwd':'" + userpwd + "'}", //Email参数
+	                        dataType: 'json',
+		                    cache: false,
+		                    timeout: "30000",
+	                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+	                        },
+	                        success: function(result) { //回调函数，result，返回值
+	                        	var users=eval("(" + result.d + ")");
+	                            if(username.toString()==users.username.toString()&&userpwd.toString()==users.userpwd.toString()){
+                                    location.href ="shouye.html"; 
+	                            }
+	                            else
+	                            {
+	                            	alert("你输入的用户名或密码错误，请重新输入");
+	                            	$("#txtUserName").focus();
+	                            	$("#txtPwd").focus();
+	                            }
+	                        }
+	                    });
+	                }
+	                else  if((username== "" && userpwd == "")||username==""||userpwd==""){
+	                	alert("用户名或者密码不能为空");
+	                }
+	            });
+	
+	        });
+		</script>
+	</body>
+</html>

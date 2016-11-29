@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/cordova.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../plugins/cordova-sqlite-storage/www/SQLitePlugin.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-3.0.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="viewJS/shouye.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+		<script src="js/echarts.js"></script>
+		<style type="text/css">
+			.div2 {
+				border: 0px solid white;
+				border-left: 0 none;
+				float: left;
+				width: 325px;
+				height: 720px;
+				background: white;
+			}
+			
+			body,
+			body-main {
+				background-color: #e5e5e5;
+				width: 100%;
+			}
+			
+			.header {
+				text-align: center;
+				background-color: black;
+				color: #fff;
+				align-content: center;
+				padding: 10px;
+				width: 100%;
+			}
+			
+			table,
+			.tb1 {
+				color: balck;
+				align-content: center;
+				/*border: 2px solid red;*/
+			}
+			
+			div,
+			.mui-slider-item {
+				height: 50;
+			}
+			
+			td,
+			.td1 {
+				border: solid #E5E5E5;
+				border-width: 0px 1px 1px 0px;
+			}
+			
+			.title {
+				margin: 35px 15px 10px;
+			}
+			
+			.title+.content {
+				margin: 10px 15px 35px;
+				color: #bbb;
+				text-indent: 1em;
+				font-size: 14px;
+				line-height: 24px;
+			}
+			
+			.mui-table-view {
+				margin-bottom: 35px;
+			}
+			
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+			
+			element.style {
+				transform: translate3d(-1032px, 0px, 0px) translateZ(0px);
+			}
+			
+			.nav {
+				bottom: 0;
+				display: table;
+				width: 100%;
+				height: 50px;
+				padding: 0;
+				table-layout: fixed;
+				border-top: 0;
+				border-bottom: 0;
+				position: fixed;
+				z-index: 10;
+				right: 0;
+				left: 0;
+				background-color: #f7f7f7;
+				box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+				backface-visibility: hidden;
+			}
+			
+			.a {
+				color: #007aff;
+				display: table-cell;
+				overflow: hidden;
+				width: 1%;
+				font-size: 12px;
+				height: 50px;
+				text-align: center;
+				vertical-align: middle;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+			/*轮播图背景*/
+			
+			.mui-slider-item {
+				background-color: white;
+			}
+			/*(轮播2)统计轮播图-父盒子设置*/
+			
+			.statisticsItem {
+				/*border: 2px solid yellow;*/
+				height: 100%;
+				width: 100%;
+			}
+			/*子盒子设置*/
+			
+			.boxOne {
+				height: 33.3%;
+				width: 100%;
+				float: left;
+				/*border: 1px solid red;*/
+			}
+			/*子盒子－左盒子设置*/
+			
+			.boxOne-L-box {
+				width: 33.333%;
+				height: 100%;
+				float: left;
+				/*border: 1px solid red;*/
+			}
+			/*左盒子－图片设置*/
+			
+			.boxOne-L-img {
+				/*border: 1px solid red;*/
+				margin-left: 50px;
+				margin-top: 20px;
+				float: left;
+			}
+			/*子盒子－中盒子设置*/
+			
+			.boxOne-M-box {
+				height: 100%;
+				width: 33.333%;
+				/*border: 1px solid lawngreen;*/
+				float: left;
+			}
+			/*中盒子－字体盒子设置*/
+			
+			.boxOneValue {
+				width: 33.3%;
+				height: auto;
+				margin-top: 16px;
+				/*border: 1px solid blue;*/
+			}
+			/*中盒子－文言盒子设置*/
+			
+			.boxOneText {
+				width: 100%;
+				height: auto;
+				/*border: 1px solid brown;*/
+			}
+			/*子盒子－右盒子设置*/
+			
+			.boxOne-R-box {
+				width: 33.333%;
+				height: 100%%;
+				float: right;
+				/*border: 1px solid blue;*/
+				text-align: center;
+			}
+			/*浮动率下降图片设置*/
+			
+			.boxOne-R-box-text-down {
+				background-image: url(../www/images/gray@3x.png);
+				background-size: 95px 30px;
+				width: 95px;
+				height: 30px;
+				background-repeat: no-repeat;
+				margin-top: 25px;
+				margin-left: 10px;
+				/*border: 1px solid deepskyblue;*/
+				float: left;
+				/*text-align: center;*/
+			}
+			/*浮动率上升图片设置*/
+			
+			.boxOne-R-box-text-up {
+				background-image: url(../www/images/orange@3x.png);
+				background-size: 95px 30px;
+				width: 95px;
+				height: 30px;
+				background-repeat: no-repeat;
+				margin-top: 25px;
+				margin-left: 10px;
+				/*border: 1px solid deepskyblue;*/
+				float: left;
+				/*text-align: center;*/
+			}
+			/*浮动率文字位置设置*/
+			
+			.R-box-value {
+				/*border: 1px solid red;*/
+				margin-top: 4px;
+				margin-left: 35px;
+				float: left;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<!--页眉，放置标题-->
+		<div class="header">
+			首页
+		</div>
+		<!--内容区-->
+		<div class="mui-card-content" style="width:100%;height:auto;">
+			<!--轮播图模块-->
+			<div class="mui-slider" style="width: 100%; height: auto;">
+				<!--轮播图1-->
+				<div class="mui-slider-group mui-slider-cell">
+					<!--支持循环，需要重复图片节点-->
+					<div class="mui-slider-item mui-slider-item-duplicate" style=" width: 100%">
+						<div id="myChart" style="width:70%;height: 300px ;"> </div>
+						<div style=" float:right;width: 30%;height: 300px; background: white; margin-top:-300px;">
+							</br>
+							</br>
+							</br><br>
+							<table class="tb1">
+								<tr>
+									<TD>本月目标：200</TD>
+								</tr>
+							</table>
+							</br>
+							<table class="tb1">
+								<tr>
+									<TD>当前完成：200</TD>
+								</tr>
+							</table>
+							</br>
+							<table class="tb1">
+								<tr>
+									<TD>完成速度：200</TD>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<!--轮播图2-->
+					<div class="mui-slider-item mui-slider-item-duplicate" style="height:300px; width: 100%;">
+						<!--轮播图－统计模块设置-->
+						<div class="statisticsItem">
+							<div class="boxOne">
+								<div class="boxOne-L-box">
+									<img class="boxOne-L-img" src="../www/images/Focus@3x.png" / style="height: 40px;width: 40px;">
+								</div>
+								<div class="boxOne-M-box">
+									<div class="boxOneValue"><span id="zhongdiankehu">
+										
+									</span></div>
+									<div class="boxOneText">本周新增重点客户数</div>
+								</div>
+								<div class="boxOne-R-box">
+									<div class="boxOne-R-box-text-down">
+										<span id="zhongdianfudonglv" class="R-box-value">
+									</span>
+									</div>
+								</div>
+							</div>
+							<div class="boxOne">
+								<div class="boxOne-L-box">
+									<img class="boxOne-L-img" src="../www/images/potential@3x.png" / style="40px: auto;width: 40px;">
+								</div>
+								<div class="boxOne-M-box">
+									<div class="boxOneValue"><span id="qianzaikehu">
+										
+									</span></div>
+									<div class="boxOneText">本周新增潜在客户数</div>
+								</div>
+								<div class="boxOne-R-box">
+									<div class="boxOne-R-box-text-up">
+										<span id="qianzaikehufudonglv" class="R-box-value">
+									</span>
+									</div>
+								</div>
+							</div>
+							<div class="boxOne">
+								<div class="boxOne-L-box">
+									<img class="boxOne-L-img" src="../www/images/general@3x.png" / style="height: 40px;width: 40px;">
+								</div>
+								<div class="boxOne-M-box">
+									<div class="boxOneValue"><span id="yibankehu">
+									</span></div>
+									<div class="boxOneText">本周新增一般客户数</div>
+								</div>
+								<div class="boxOne-R-box">
+									<div class="boxOne-R-box-text-up">
+										<span id="yibankehufudonglv" class="R-box-value"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> 
+				<div class="mui-slider-indicator">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+			<!--九宫格功能点击模块-->
+			<div class="mui-content" style="width: 100%;height: auto;">
+				<ul class="mui-table-view mui-grid-view mui-grid-9" style="background: white;">
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="#">
+							<span class="mui-icon">
+	                    <img src="images/DCC.png" />
+	                    <!--<span class="mui-badge">50</span>-->
+							</span>
+							<div class="mui-media-body">DCC信息</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="#">
+							<span class="mui-icon">
+	                    	<img src="images/activity.png" />
+	                    	<span class="mui-badge">50</span>
+							</span>
+							<div class="mui-media-body">活动专区</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="#">
+							<span class="mui-icon">
+	                    	<img src="images/aftersales.png" />
+	                    	<!--<span class="mui-badge">50</span>-->
+							</span>
+							<div class="mui-media-body">售后跟进</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="#">
+							<span class="mui-icon">
+	                    	<img src="images/loading.png" />
+	                    	<!--<span class="mui-badge">50</span>-->
+							</span>
+							<div class="mui-media-body">同步数据</div>
+						</a </li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+							<a href="#">
+								<span class="mui-icon">
+	                    	<img src="images/Presale.png" />
+	                    	<!--<span class="mui-badge">50</span>-->
+								</span>
+								<div class="mui-media-body">上传数据</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+							<a href="login.html">
+								<span class="mui-icon">
+	                    	<img src="images/aftersales.png" />
+	                    	<!--<span class="mui-badge">50</span>-->
+								</span>
+								<div class="mui-media-body">加载</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+							<a href="#">
+								<span class="mui-icon">
+	                    	<img src="images/aftersales.png" />
+	                    	<!--<span class="mui-badge">50</span>-->
+								</span>
+								<div class="mui-media-body">其他</div>
+							</a>
+						</li>
+				</ul>
+			</div>
+			<!--页脚，放置补充信息或支持的操作-->
+			<div class="mui-card-footer"></div>
+			<div id="bottom">
+				<nav class='nav'>
+					<a class='a' href="shouye.html">
+						<span class='mui-icon mui-icon-home'></span>
+						<span class='mui-tab-label'>首页</span>
+					</a>
+					<a class='a' href="GengZongXiang.html">
+						<span class='mui-icon iconfont icon-jiaoyin'></span>
+						<span class='mui-tab-label'>跟踪箱</span>
+					</a>
+					<a class='a' href="kehu.html">
+						<span class='mui-icon iconfont icon-kehu-copy'></span>
+						<span class='mui-tab-label'>客户</span>
+					</a>
+					<a class='a'>
+						<span class='mui-icon iconfont icon-qita'></span>
+						<span class='mui-tab-label'>其他</span>
+					</a>
+				</nav>
+			</div>
+		</div>
+	</body>
+
+	<script>
+		< /html>

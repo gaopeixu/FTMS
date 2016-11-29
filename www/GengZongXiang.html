@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/iconfont.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="../css/app.css" />
+		<script src="cordova.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../plugins/cordova-sqlite-storage/www/SQLitePlugin.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="viewJS/gongzongxiang.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+		<script src="js/echarts.js"></script>
+
+		<style type="text/css">
+			.top {
+				margin-top: -0.3rem;
+				background: black;
+				height: 3.1rem;
+				width: auto;
+			}
+			
+			.top1 {
+				font-family: Muiicons;
+				font-size: 24px;
+				font-weight: 400;
+				font-style: normal;
+				line-height: 1;
+				display: inline-block;
+				text-decoration: none;
+				-webkit-font-smoothing: antialiased;
+				float: left;
+				color: #007aff;
+				background: 0 0;
+				margin-top: 0.5rem;
+			}
+			
+			.top1:before {
+				content: '\e471';
+			}
+			
+			.h1 {
+				color: #C0C0C0;
+				font-size: 18px;
+				text-align: center;
+				padding-top: 1rem;
+			}
+			
+			.main_1 {
+				margin: 0.5rem;
+				height: 2.1rem;
+			}
+			
+			.main_2 {
+				margin-top: -0.25rem;
+				width: 100%;
+				padding-top: 0.05rem;
+				background: white;
+				height: 6rem;
+			}
+			
+			.main_2>table {
+				width: 100%;
+				margin-top: 0.8rem;
+				font-size: 12px;
+				text-align: center;
+			}
+			
+			.main_3 {
+				width: 100%;
+				margin-top: -0.65rem;
+				height: 3rem;
+				background: white;
+			}
+			
+			.main_3>ul>li {
+				position: relative;
+				z-index: 20;
+				padding-top: 0.8rem;
+				margin-left: -1rem;
+				width: 33.3%;
+				height: 2rem;
+				float: left;
+				font-size: 14px;
+				box-sizing: border-box;
+				list-style-type: none;
+			}
+			
+			.main_3>ul>li>a {
+				text-align: center;
+			}
+			
+			.mui-table-view-cell:after {
+				background-color: white;
+			}
+			
+			.main_3>ul>li>ul {
+				background: #C0C0C0;
+				position: absolute;
+				z-index: 1;
+			}
+			
+			.main_3>ul>li>ul>li {
+				font-size: 14px;
+				width: 7rem;
+			}
+			
+			.main_4 {
+				padding-top: 1px;
+				margin-top: 0.3rem;
+				height: 360px;
+				background: white;
+			}
+			
+			.main_4 p {
+				font-size: 0.8rem;
+			}
+			
+			.lblFristDate {
+				color: red;
+				font-size: 0.9rem;
+				float: right;
+			}
+			
+			.lblLastDate {
+				color: black;
+				font-size: 0.9rem;
+				float: right;
+			}
+			
+			.nav {
+				bottom: 0;
+				display: table;
+				width: 100%;
+				height: 50px;
+				padding: 0;
+				table-layout: fixed;
+				border-top: 0;
+				border-bottom: 0;
+				position: fixed;
+				z-index: 10;
+				right: 0;
+				left: 0;
+				background-color: #f7f7f7;
+				box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+				backface-visibility: hidden;
+			}
+			
+			.a {
+				color: #007aff;
+				display: table-cell;
+				overflow: hidden;
+				width: 1%;
+				font-size: 12px;
+				height: 50px;
+				text-align: center;
+				vertical-align: middle;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="container" class="container">
+			<div id="top" class="top">
+				<!--<a class="top1" href="index.html"></a>-->
+				<h1 class="h1">跟踪箱</h1>
+			</div>
+			<div id="main">
+				<div id="main_1" class="main_1">
+					<div class="mui-input-row mui-search">
+						<input type="search" placeholder="请输入客户姓名/手机号/备注关键词" style="background: white;font-size:10px;height:30px;" />
+					</div>
+				</div>
+				<div id="main_2" class="main_2">
+					<table>
+						<tr>
+							<td>
+								<a href="examples/echarts.html">
+									<img src="images/Presale.png">
+									<div style="color: #AAAAAA;">售前跟进</div>
+								</a>
+							</td>
+							<td>
+								<a href="examples/buttons.html">
+									<img src="images/aftersales.png">
+									<div style="color: #AAAAAA;">售后跟进</div>
+								</a>
+							</td>
+							<td>
+								<a href="examples/dialog.html">
+									<img src="images/loading.png">
+									<div style="color: #AAAAAA;">浏览记录</div>
+								</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div id="main_3" class="main_3">
+					<ul>
+						<li class="mui-table-view-cell mui-collapse">
+							<a class="mui-navigate-right" href="#">顾客等级</a>
+							<ul class="mui-table-view mui-table-view-chevron" style="margin-left:-7px;">
+								<li class="mui-table-view-cell">
+									<a>重点</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a>潜在</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a>一般</a>
+								</li>
+							</ul>
+						</li>
+						<li class="mui-table-view-cell mui-collapse">
+							<a class="mui-navigate-right" href="#">跟进期限</a>
+							<ul class="mui-table-view mui-table-view-chevron" style="margin-left:-7px;">
+								<li class="mui-table-view-cell">
+									<a>重点</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a>潜在</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a>一般</a>
+								</li>
+							</ul>
+						</li>
+						<li class="mui-table-view-cell mui-collapse">
+							<a class="mui-navigate-right" href="#">车型信息</a>
+							<ul class="mui-table-view mui-table-view-chevron" style="margin-left:-7px;">
+								<li class="mui-table-view-cell">
+									<a>重点</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a>潜在</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a>一般</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div id="mian_4" class="main_4">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="images/upload@2x.png">
+								<div class="mui-media-body">
+									<p id='day'> 天数 </p> <label id="lblFristDate" class="lblFristDate">首次建卡:2016-09-21</label>
+									<p class='mui-ellipsis'>今天过来看车，在广告上看到了LC200,想换车，希望能约个时间看车。</p>
+									<br/>
+									<p>车型:卡罗拉GL-i炫酷版MT<label id="lblLastDate" calss="lblLastDate">最后跟进：2016-09-21</label></p>
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="images/upload@2x.png">
+								<div class="mui-media-body">
+									宋茜 <label id="lblFristDate" class="lblFristDate">首次建卡:2016-09-21</label>
+									<p class='mui-ellipsis'>今天过来看车，在广告上看到了LC200,想换车，希望能约个时间看车。</p>
+									<br/>
+									<p>车型:卡罗拉GL-i炫酷版MT<label id="lblLastDate" calss="lblLastDate">最后跟进：2016-09-21</label></p>
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="images/upload@2x.png">
+								<div class="mui-media-body">
+									宋茜 <label id="lblFristDate" class="lblFristDate">首次建卡:2016-09-21</label>
+									<p class='mui-ellipsis'>今天过来看车，在广告上看到了LC200,想换车，希望能约个时间看车。</p>
+									<br/>
+									<p>车型:卡罗拉GL-i炫酷版MT<label id="lblLastDate" calss="lblLastDate">最后跟进：2016-09-21</label></p>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="bottom">
+				<nav class="nav">
+					<a class="a" href="shouye.html">
+						<span class='mui-icon mui-icon-home'></span>
+						<span class='mui-tab-label'>首页</span>
+					</a>
+					<a class="a" href="GengZongXiang.html">
+						<span class='mui-icon iconfont icon-jiaoyin'></span>
+						<span class='mui-tab-label'>跟踪箱</span>
+					</a>
+					<a class="a" href="kehu.html">
+						<span class='mui-icon iconfont icon-kehu-copy'></span>
+						<span class='mui-tab-label'>客户</span>
+					</a>
+					<a class="a" href="#">
+						<span class='mui-icon iconfont icon-qita'></span>
+						<span class='mui-tab-label'>其他</span>
+					</a>
+				</nav>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+	</body>
+
+</html>

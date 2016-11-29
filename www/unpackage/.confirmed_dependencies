@@ -1,0 +1,59 @@
+{
+	"GengZongXiang.html": {
+		"resources": [
+			"images/Presale.png",
+			"images/aftersales.png",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"images/loading.png",
+			"fonts/iconfont.ttf",
+			"images/upload@2x.png",
+			"kehu.html"
+		],
+		"refer": [
+			"kehu.html"
+		]
+	},
+	"index.html": {
+		"resources": [
+			"js/jquery-3.0.0.js",
+			"shouye.html"
+		],
+		"refer": [
+			"shouye.html"
+		]
+	},
+	"shouye.html": {
+		"resources": [
+			"images/Presale.png",
+			"js/echarts.js",
+			"images/aftersales.png",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"images/DCC.png",
+			"css/mui.min.css",
+			"images/loading.png",
+			"images/activity.png",
+			"fonts/iconfont.ttf",
+			"images/s2.jpg",
+			"GengZongXiang.html"
+		],
+		"refer": [
+			"GengZongXiang.html"
+		]
+	},
+	"kehu.html": {
+		"resources": [
+			"shouye.html",
+			"GengZongXiang.html",
+			"libs/echarts-all.js"
+		],
+		"refer": [
+			"shouye.html",
+			"GengZongXiang.html"
+		]
+	}
+}
